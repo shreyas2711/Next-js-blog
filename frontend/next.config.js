@@ -7,6 +7,7 @@
         appDir: true,
       },
       images: {
+        domains: ['next-js-blog-vvss.onrender.com'], 
         remotePatterns: [
           {
             protocol: 'http',
