@@ -1,25 +1,23 @@
-    // ./frontend/next.config.js
-    
-    /** @type {import('next').NextConfig} */
-    
-    const nextConfig = {
-      experimental: {
-        appDir: true,
+// ./frontend/next.config.js
+
+const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
+  images: {
+    domains: ['next-js-blog-vvss.onrender.com', 'images.pexels.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'next-js-blog-vvss.onrender.com',
+        pathname: '/uploads/**',
       },
-      images: {
-        remotePatterns: [
-          {
-            protocol: 'http',
-            hostname: '127.0.0.1',
-            port: '1337',
-            pathname: '/uploads/**',
-          },
-          {
-            protocol: 'https',
-            hostname: 'images.pexels.com',
-          }
-        ],
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
       },
-    }
-    
-    module.exports = nextConfig
+    ],
+  },
+}
+
+module.exports = nextConfig;
