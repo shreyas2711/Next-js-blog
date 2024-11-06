@@ -1,7 +1,8 @@
 // ./frontend/src/app/[lang]/utils/api-helpers.ts
 
 export function getStrapiURL(path = '') {
-    return `${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'}${path}`;
+    const baseUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337';
+    return `${baseUrl.replace(/\/+$/, '')}/${path.replace(/^\/+/, '')}`;
 }
 
 export function getStrapiMedia(url: string | null) {
@@ -10,11 +11,11 @@ export function getStrapiMedia(url: string | null) {
     }
 
     // Return the full URL if the media is hosted on an external provider
-    if (url.startsWith('http') || url.startsWith('//') ||url.startsWith('https')) {
+    if (url.startsWith('http') || url.startsWith('//') || url.startsWith('https')) {
         return url;
     }
 
-    // Otherwise prepend the URL path with the Strapi URL
+    // Otherwise, prepend the URL path with the Strapi URL
     return `${getStrapiURL()}${url}`;
 }
 
