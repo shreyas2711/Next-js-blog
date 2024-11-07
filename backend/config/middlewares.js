@@ -3,7 +3,7 @@ module.exports = [
       name: 'strapi::public',
       config: {
         maxAge: 31536000,
-        path: './public/uploads',
+        path: '/uploads',
       },
     },
   'strapi::errors',
